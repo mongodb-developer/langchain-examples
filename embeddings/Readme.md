@@ -69,8 +69,41 @@ audio1.mp3
 audio2.mp3
 ```
 
+### Query data
+Here is a code example that can query similarity based on another audio file
 
+```
+file_path = '/audiofiles/audio2.mp3'
+
+print ('Searching main file is: ' + file_path)
+emb = get_embedding(file_path)
+results = collection.aggregate([
+  { "$search": {
+    "knnBeta": {
+      "vector": emb.tolist(),
+      # Optional: Add a filter to not show the "searched" file if it is also a neighbour in the database
+      "filter" : { "compound":{
+        "mustNot": [{
+          "phrase": {
+            "query": file_path,
+            "path": "file"
+          }
+        }]
+      }
+      },
+      "path": "embeddings",
+      "k": 3}
+ }}
+])
+
+print ('\n Similar songs result is:')
+for document in results:
+    # Print the document
+   
+    print(document['file'])
+```
 # DISCLAIMER
+```
 
 ---
 
