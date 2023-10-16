@@ -72,7 +72,7 @@ audio2.mp3
 ### Query data
 Here is a code example that can query similarity based on another audio file
 
-```
+```python
 file_path = '/audiofiles/audio2.mp3'
 
 print ('Searching main file is: ' + file_path)
