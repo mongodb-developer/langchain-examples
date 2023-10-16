@@ -7,7 +7,28 @@ This data can be used as an embedding array for MongoDB Atlas Vector search for 
 - Similariity search based on audio
 - Ranking and scoring similarity of audio
 
+  
+
 ## Setup and install
+On your Atlas cluster:
+
+Build [vector search](https://www.mongodb.com/products/platform/atlas-vector-search) on MusicDB and songs with 2048 dimensions
+```
+{
+  "mappings": {
+    "dynamic": true,
+    "fields": {
+      "embeddings": {
+        "dimensions": 2048,
+        "similarity": "dotProduct",
+        "type": "knnVector"
+      }
+    }
+  }
+}
+```
+
+
 Install numpy, librosa and panns_inference:
 
 ```
