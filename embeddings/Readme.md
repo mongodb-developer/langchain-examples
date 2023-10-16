@@ -10,7 +10,8 @@ This data can be used as an embedding array for MongoDB Atlas Vector search for 
   
 
 ## Setup and install
-On your Atlas cluster:
+
+### Atlas Cluster
 
 Build [vector search](https://www.mongodb.com/products/platform/atlas-vector-search) on MusicDB and songs with 2048 dimensions
 ```
@@ -28,7 +29,7 @@ Build [vector search](https://www.mongodb.com/products/platform/atlas-vector-sea
 }
 ```
 
-
+### Local machine
 Install numpy, librosa and panns_inference:
 
 ```
